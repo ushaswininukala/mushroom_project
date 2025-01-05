@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushroom Toxicity Prediction</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        body {
+            background-image: url('/static/images/pic_2.jpeg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 20px;
+            background: rgba(200, 255, 255, 0.5);
+            box-shadow: 0 4px 8px rgba(200, 255, 255, 0.2);
+            width: 500px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            color: #6a0dad;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        select, input {
+            width: 80%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: black;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mushroom Toxicity Prediction</h1>
+        <form action="/predict" method="POST">
+            <label for="cap-diameter">Cap Diameter (in mm):</label>
+            <input type="number" step="0.01" id="cap-diameter" name="cap-diameter" required>
+
+            <label for="cap-shape">Cap Shape:</label>
+            <select id="cap-shape" name="cap-shape" required>
+                <option value="">Select</option>
+                <option value="1">Bell</option>
+                <option value="2">Conical</option>
+                <option value="3">Convex</option>
+                <option value="4">Flat</option>
+                <option value="5">Sunken</option>
+                <option value="6">Spherical</option>
+            </select>
+
+            <label for="gill-attachment">Gill Attachment:</label>
+            <select id="gill-attachment" name="gill-attachment" required>
+                <option value="">Select</option>
+                <option value="1">Adnate</option>
+                <option value="2">Adnexed</option>
+                <option value="3">Decurrent</option>
+                <option value="4">Free</option>
+                <option value="5">Unknown</option>
+            </select>
+
+            <label for="gill-color">Gill Color:</label>
+            <select id="gill-color" name="gill-color" required>
+                <option value="">Select</option>
+                <option value="1">Brown</option>
+                <option value="2">Buff</option>
+                <option value="3">Gray</option>
+                <option value="4">Green</option>
+                <option value="5">Pink</option>
+                <option value="6">Purple</option>
+                <option value="7">Red</option>
+                <option value="8">White</option>
+                <option value="9">Yellow</option>
+                <option value="10">Black</option>
+                <option value="11">Orange</option>
+            </select>
+
+            <label for="stem-height">Stem Height (in cm):</label>
+            <input type="number" step="0.01" id="stem-height" name="stem-height" required>
+
+            <label for="stem-width">Stem Width (in mm):</label>
+            <input type="number" step="0.01" id="stem-width" name="stem-width" required>
+
+            <label for="stem-color">Stem Color:</label>
+            <select id="stem-color" name="stem-color" required>
+                <option value="">Select</option>
+                <option value="1">Brown</option>
+                <option value="2">Buff</option>
+                <option value="3">Gray</option>
+                <option value="4">Green</option>
+                <option value="5">Pink</option>
+                <option value="6">Purple</option>
+                <option value="7">Red</option>
+                <option value="8">White</option>
+                <option value="9">Yellow</option>
+                <option value="10">Blue</option>
+                <option value="11">Orange</option>
+                <option value="12">Black</option>
+            </select>
+
+            <label for="season">Season:</label>
+            <select id="season" name="season" required>
+                <option value="">Select</option>
+                <option value="1">Spring</option>
+                <option value="2">Summer</option>
+                <option value="3">Autumn</option>
+                <option value="4">Winter</option>
+            </select>
+            
+            <div><button type="submit">Predict</button></div>
+        </form>
+    </div>
+</body>
+</html>
